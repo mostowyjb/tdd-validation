@@ -20,5 +20,11 @@ describe('Password Validation', () => {
       cy.get('#result-container').should('contain', 'Le mot de passe doit contenir au moins une lettre majuscule');
     });
   
+    it('Vérifie que le mot de passe doit contenir au moins un caractère spécial', () => {
+      cy.visit('/');
+      cy.get('input').type('Password1');
+      cy.get('button').click();
+      cy.contains('Le mot de passe doit contenir au moins un caractère spécial');
+    });
     // Ajoutez les autres tests pour les conditions restantes
   });
