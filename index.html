@@ -6,11 +6,41 @@
 </head>
 <body>
 
-  <form>
-    <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="password">
-    <button type="submit">Valider</button>
-  </form>
+  <input type="password" id="passwordInput" placeholder="Mot de passe">
+  <button id="submitButton">Valider</button>
+  
+
+  <div id="errorMessages"></div>
   <script type="module" src="/src/index.js"></script>
+  <script src="/src/passwordValidator.js"></script>
+  <script>
+    // document.getElementById('submitButton').addEventListener('click', function() {
+    //   var password = document.getElementById('passwordInput').value;
+    //   var validationResult = validatePassword(password);
+    //   displayErrors(validationResult.errors);
+    // });
+    
+    // function displayErrors(errors) {
+    //   var errorMessagesContainer = document.getElementById('errorMessages');
+    //   errorMessagesContainer.innerHTML = '';
+      
+    //   if (errors.length === 0) {
+    //     errorMessagesContainer.style.display = 'none';
+    //     return;
+    //   }
+      
+    //   errorMessagesContainer.style.display = 'block';
+      
+    //   var errorMessageList = document.createElement('ul');
+      
+    //   errors.forEach(function(error) {
+    //     var errorMessageItem = document.createElement('li');
+    //     errorMessageItem.textContent = error;
+    //     errorMessageList.appendChild(errorMessageItem);
+    //   });
+      
+    //   errorMessagesContainer.appendChild(errorMessageList);
+    // }
+  </script>
 </body>
 </html>
