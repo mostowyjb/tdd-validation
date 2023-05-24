@@ -1,24 +1,37 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { validatePassword } from './src/passwordValidator'
 
-document.querySelector('#app').innerHTML = `
+
+const formPage = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
+    <h1>Password Validation App</h1>
+    <input type="password" id="password-input" placeholder="Enter your password">
+    <button id="validate-button">Validate</button>
+    <div id="result-container"></div>
   </div>
-`
+`;
+document.querySelector('#app').innerHTML = formPage;
+const passwordInput = document.getElementById('password-input');
+const validateButton = document.getElementById('validate-button');
+const resultContainer = document.getElementById('result-container');
 
-setupCounter(document.querySelector('#counter'))
+validateButton.addEventListener('click', () => {
+  const password = passwordInput.value;
+  const validationResult = validatePassword(password);
+
+  if (validationResult.valid) {
+    resultContainer.textContent = 'Password valid';
+    resultContainer.classList.remove('error');
+  } else {
+    resultContainer.innerHTML = ''; // Clear any previous error messages
+
+    validationResult.errors.forEach((error) => {
+      const errorElement = document.createElement('p');
+      errorElement.textContent = error;
+      resultContainer.appendChild(errorElement);
+    });
+
+    resultContainer.classList.add('error');
+  }
+});
+

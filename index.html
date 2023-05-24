@@ -1,46 +1,13 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Password Validation App</title>
-</head>
-<body>
-
-  <input type="password" id="passwordInput" placeholder="Mot de passe">
-  <button id="submitButton">Valider</button>
-  
-
-  <div id="errorMessages"></div>
-  <script type="module" src="/src/index.js"></script>
-  <script src="/src/passwordValidator.js"></script>
-  <script>
-    // document.getElementById('submitButton').addEventListener('click', function() {
-    //   var password = document.getElementById('passwordInput').value;
-    //   var validationResult = validatePassword(password);
-    //   displayErrors(validationResult.errors);
-    // });
-    
-    // function displayErrors(errors) {
-    //   var errorMessagesContainer = document.getElementById('errorMessages');
-    //   errorMessagesContainer.innerHTML = '';
-      
-    //   if (errors.length === 0) {
-    //     errorMessagesContainer.style.display = 'none';
-    //     return;
-    //   }
-      
-    //   errorMessagesContainer.style.display = 'block';
-      
-    //   var errorMessageList = document.createElement('ul');
-      
-    //   errors.forEach(function(error) {
-    //     var errorMessageItem = document.createElement('li');
-    //     errorMessageItem.textContent = error;
-    //     errorMessageList.appendChild(errorMessageItem);
-    //   });
-      
-    //   errorMessagesContainer.appendChild(errorMessageList);
-    // }
-  </script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>
